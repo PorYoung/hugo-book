@@ -1,0 +1,946 @@
+:root {
+    --main-color: rgba(128, 30, 255, 1)!important;
+    --shadow-color: rgb(178, 80, 255)!important;
+    --transplate-color: rgba(128, 30, 255, 0.1)!important;
+    --dark-color: rgb(70, 18, 137)!important;
+    --light-color: rgb(248, 242, 255)!important;
+    --font-color: rgb(12, 12, 12)!important;
+    --base-font: "Glow Sans", "Microsoft YaHei", serif!important;
+    --title-font: "Roboto Slab", "Times", serif!important;
+    --blockquote-font: "Times", "Roboto Slab", serif!important;
+    --blockquote-color: rgba(117, 117, 117, 0.9)!important;
+    --monospace: "Cascadia code", "Courier New", monospace!important;
+    /* --background : url("https://cdn.jsdelivr.net/gh/LSTM-Kirigaya/KImage/Img/2k.jpg"); */
+    --quote-title-font-size: 0.9em!important;
+    --quote-tag-font-size: 1.1em!important;
+    /* typora GUI config */
+    --sidebar-font-color: black!important;
+    --main-panel-font-color: black!important;
+}
+
+@font-face {
+    font-family: "Roboto Slab"!important;
+    src: url("./haru/RobotoSlab-Regular-2.ttf")!important;
+}
+
+@font-face {
+    font-family: "Cascadia code"!important;
+    src: url("./haru/Cascadia-Code-Regular-2.ttf")!important;
+}
+
+@font-face {
+    font-family: "Open Sans"!important;
+    src: url("./haru/Open-Sans-2.ttf")!important;
+}
+
+@font-face {
+    font-family: "Glow Sans"!important;
+    src: url("./haru/GlowSansSC-Normal-Book.woff2") format('woff2')!important;
+}
+
+
+html {
+    -webkit-text-size-adjust: 100%!important;
+    -ms-text-size-adjust: 100%!important;
+    text-rendering: optimizelegibility!important;
+    -webkit-font-smoothing: initial!important;
+}
+
+
+/* write is a wrapper of writable region */
+
+.markdown {
+    position: static!important;
+    /* width: 90%!important; */
+    // max-width: 1000px!important;
+    // min-height: calc(100vh - 6rem)!important;
+    // min-width: calc(100vw - 45rem)!important;
+    line-height: 1.6!important;
+    transform: none!important;
+    height: auto!important;
+    caret-color: var(--main-color)!important;
+}
+
+.markdown h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--font-color)!important;
+    font-family: var(--title-font)!important;
+    font-weight: 800!important;
+    line-height: 1.5!important;
+    margin: 0 0 1em 0!important;
+}
+
+.markdown h1 {
+    font-size: 40px!important;
+    margin: 0 0 1.0em 0!important;
+    line-height: 1.3!important;
+    border-bottom: solid 3px var(--main-color)!important;
+    width: fit-content!important;
+}
+
+.markdown h2 {
+    font-size: 28px!important;
+    border-radius: .5em!important;
+    width: fit-content!important;
+}
+
+.markdown h2::before {
+    content: "H2"!important;
+    border-radius: .3em!important;
+    font-size: .8em!important;
+    padding: 3px 7px!important;
+    margin-right: 15px!important;
+    background-color: var(--main-color)!important;
+    color: white!important;
+}
+
+.markdown h3 {
+    font-size: 24px!important;
+    border-radius: .3em!important;
+    width: fit-content!important;
+}
+
+.markdown h3::before {
+    content: "H3"!important;
+    color: white!important;
+    font-size: 0.8em!important;
+    background-color: var(--main-color)!important;
+    border-radius: .3em!important;
+    margin-right: 12px!important;
+    padding: 4px 7px!important;
+}
+
+.markdown h4 {
+    font-size: 20px!important;
+}
+
+.markdown h5 {
+    font-size: 16px!important;
+}
+
+.markdown hr {
+    width: 60%!important;
+    text-align: center!important;
+    border-bottom: solid 1.8px var(--main-color)!important;
+    margin: 4.5em auto!important;
+    background: none!important;
+}
+
+.markdown img {
+    border-radius: 1em!important;
+    box-shadow: 0 0 8px 3px rgba(134, 136, 137, 0.8)!important;
+    transition: all 0.3s linear!important;
+    -moz-transition: all 0.3s linear!important;
+    -webkit-transition: all 0.3s linear!important;
+}
+
+.markdown img:hover {
+    box-shadow: 0 0 25px 3px var(--shadow-color)!important;
+    transition: all 0.3s linear!important;
+    -moz-transition: all 0.3s linear!important;
+    -webkit-transition: all 0.3s linear!important;
+}
+
+.markdown blockquote {
+    padding: 10px 10px!important;
+    font-size: var(--quote-title-font-size)!important;
+    color: var(--blockquote-color)!important;
+    border-left: 6px solid var(--main-color)!important;
+    background: var(--light-color)!important;
+    border-radius: 0.5em!important;
+    font-family: var(--blockquote-font)!important;
+}
+
+.markdown blockquote h1 {
+    font-weight: 200!important;
+    font-size: var(--quote-tag-font-size)!important;
+    border-bottom: none!important;
+}
+
+.markdown blockquote h1::before {
+    content: "Tips"!important;
+    background-color: var(--main-color)!important;
+    color: white!important;
+    font-size: var(--quote-tag-font-size)!important;
+    border-radius: .3em!important;
+    padding: 3px 7px!important;
+    margin-right: 15px!important;
+}
+
+.markdown blockquote h2 {
+    font-weight: 200!important;
+    font-size: var(--quote-tag-font-size)!important;
+}
+
+.markdown blockquote h2::before {
+    content: "Warning"!important;
+    background-color: rgb(207, 210, 16)!important;
+    color: white!important;
+    font-size: var(--quote-tag-font-size)!important;
+    border-radius: .3em!important;
+    padding: 3px 7px!important;
+    margin-right: 15px!important;
+}
+
+.markdown blockquote h3 {
+    font-weight: 200!important;
+    font-size: var(--quote-tag-font-size)!important;
+}
+
+.markdown blockquote h3::before {
+    content: "Error"!important;
+    background-color: rgb(224, 66, 66)!important;
+    color: white!important;
+    font-size: var(--quote-tag-font-size)!important;
+    border-radius: .3em!important;
+    padding: 3px 7px!important;
+    margin-right: 15px!important;
+}
+
+.markdown blockquote h4 {
+    font-weight: 200!important;
+    font-size: var(--quote-tag-font-size)!important;
+}
+
+.markdown blockquote h4::before {
+    content: "Remind"!important;
+    background-color: var(--shadow-color)!important;
+    color: white!important;
+    font-size: var(--quote-tag-font-size)!important;
+    border-radius: .3em!important;
+    padding: 3px 7px!important;
+    margin-right: 15px!important;
+}
+
+.markdown blockquote h5 {
+    font-weight: 200!important;
+    font-size: var(--quote-tag-font-size)!important;
+}
+
+.markdown blockquote h5::before {
+    content: "Remind"!important;
+    background-color: var(--shadow-color)!important;
+    color: white!important;
+    font-size: var(--quote-tag-font-size)!important;
+    border-radius: .3em!important;
+    padding: 3px 7px!important;
+    margin-right: 15px!important;
+}
+
+
+/* code block */
+
+.markdown pre {
+    padding: 2rem 0.5rem 1rem!important;
+    display: block!important;
+    -webkit-overflow-scrolling: touch!important;
+    /* box-shadow: 0 0 6px 2px rgba(151, 151, 151, 0.9)!important; */
+    /* border-top: rgb(51, 51, 51) solid 35px!important; */
+    /*border-top: rgb(244, 244, 244) solid 35px!important;*/
+    background-color: rgb(244, 244, 244)!important;
+}
+
+pre::before {
+    content: ' '!important;
+    background: var(--main-color)!important;
+    box-shadow: 23px 0 rgb(128, 128, 128), 45px 0 gray!important;
+    border-radius: 50%!important;
+    position: relative!important;
+    left: 2px!important;
+    height: 12px!important;
+    width: 12px!important;
+    display: inline-block;
+    top: -20px;
+}
+
+.markdown pre {
+    line-height: 1.5rem!important;
+    font-size: .9rem!important;
+    font-weight: 300!important;
+    border-radius: .7em!important;
+    font-family: var(--monospace) !important;
+}
+
+
+/* inline code */
+
+code {
+    margin: 0 2px!important;
+    padding: 4px 6px!important;
+    color: #666363!important;
+    white-space: pre-wrap!important;
+    background: var(--light-color)!important;
+    border-radius: 8px!important;
+}
+
+.markdown blockquote code {
+    margin: 0 2px!important;
+    padding: 4px 6px!important;
+    color: white!important;
+    white-space: pre-wrap!important;
+    background: var(--main-color)!important;
+    border-radius: 8px!important;
+}
+
+kbd,
+samp,
+tt,
+var {
+    font-family: var(--monospace) !important;
+}
+
+
+/* YAML */
+
+pre.md-meta-block {
+    font-size: .8rem!important;
+    min-height: .8rem!important;
+    white-space: pre-wrap!important;
+    background: var(--main-color)!important;
+    display: block!important;
+    overflow-x: hidden!important;
+    padding: 15px!important;
+    font-family: var(--monospace)!important;
+    border-radius: 1.2em!important;
+    color: white!important;
+    caret-color: white!important;
+}
+
+
+/* Math */
+
+#math-inline-preview-content .MathJax {
+    color: white !important;
+}
+
+
+/* table */
+
+.markdown table {
+    width: 95%!important;
+    border-collapse: collapse!important;
+    text-align: center!important;
+    font-family: var(--monospace)!important;
+    margin: 20px!important;
+}
+
+.markdown table td,
+table th {
+    border: 1px solid transparent!important;
+    color: rgb(18, 18, 18)!important;
+    height: 30px!important;
+    padding: 10px!important;
+    border-radius: .5em!important;
+    transition: all 0.3s linear!important;
+    -moz-transition: all 0.3s linear!important;
+    -webkit-transition: all 0.3s linear!important;
+}
+
+.markdown table td {
+    font-family: var(--title-font)!important;
+}
+
+.markdown table thead th {
+    background-color: var(--shadow-color)!important;
+    font-size: 20px!important;
+    color: white!important;
+    font-weight: bolder!important;
+    width: 100px!important;
+    text-align: center!important;
+    vertical-align: middle!important;
+    padding: 10px!important;
+}
+
+table tr:nth-child(odd) {
+    background: white!important;
+}
+
+table tr:nth-child(even) {
+    background: var(--light-color)!important;
+}
+
+table td:hover {
+    background-color: var(--shadow-color) !important;
+    color: white !important;
+    box-shadow: 0 0 10px 5px var(--shadow-color)!important;
+    transition: all 0.3s linear!important;
+    -moz-transition: all 0.3s linear!important;
+    -webkit-transition: all 0.3s linear!important;
+}
+
+
+/* main element consisting of your text */
+
+p {
+    color: var(--font-color)!important;
+    margin: 0 0 2em 0!important;
+    font-weight: 500!important;
+    line-height: 1.6!important;
+    font-family: var(--base-font)!important;
+}
+
+a {
+    color: var(--main-color)!important;
+    font-weight: 500!important;
+    text-decoration: none!important;
+    text-decoration-style: none!important;
+    cursor: pointer!important;
+    padding: 0 3px 0 3px!important;
+}
+
+
+/* list */
+
+ol,
+ul {
+    padding-left: 2em!important;
+    line-height: 2!important;
+}
+
+ul>li>ul>li {
+    list-style-type: circle!important;
+}
+
+ul>li>ul>li>ul>li {
+    list-style-type: square!important;
+}
+
+iframe {
+    border-radius: 1.2em!important;
+    box-shadow: 0 0 8px 3px rgba(181, 181, 182, 0.9)!important;
+}
+
+
+/* checkbox */
+
+.md-task-list-item:hover>input:before,
+input[type='checkbox']:hover:before {
+    opacity: 1!important;
+    transition: 0.3s!important;
+    background-color: var(--shadow-color)!important;
+}
+
+.task-list-item input::before {
+    content: ""!important;
+    display: inline-block!important;
+    border-radius: .3em!important;
+    vertical-align: middle!important;
+    border: 1.2px solid var(--main-color)!important;
+    background-color: #ffffff!important;
+    width: 1.1rem!important;
+    height: 1.1rem!important;
+    margin-left: -0.1rem!important;
+    margin-right: 0.1rem!important;
+    margin-top: -0.68rem!important;
+}
+
+.task-list-item input:checked::before {
+    padding-left: 0.125em!important;
+    content: '鉁�'!important;
+    color: white!important;
+    background-color: var(--main-color)!important;
+    font-size: 0.8rem!important;
+    line-height: 0.95rem!important;
+    margin-top: -0.68rem!important;
+    transition: background-color 200ms ease-in-out!important;
+}
+
+#footer-word-count-label {
+    font-family: var(--title-font) !important;
+    color: white!important;
+    padding: 1px 8px!important;
+    border-radius: 1.0em!important;
+    background-color: var(--main-color)!important;
+}
+
+
+/* bg color when text is selected */
+
+div::selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+div::-moz-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+div::-webkit-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+blockquote::selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+blockquote::-moz-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+blockquote::-webkit-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+p::selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+p::-moz-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+p::-webkit-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+label::selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+label::-moz-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+label::-webkit-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+span::selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+span::-moz-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+span::-webkit-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+h1::selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+h1::-moz-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+h1::-webkit-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+h2::selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+h2::-moz-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+h2::-webkit-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+h3::selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+h3::-moz-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+h3::-webkit-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+h4::selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+h4::-moz-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+h4::-webkit-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+h5::selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+h5::-moz-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+h5::-webkit-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+code::selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+code::-moz-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+code::-webkit-selection {
+    background: var(--main-color)!important;
+    color: white!important;
+}
+
+
+/* outside */
+
+.megamenu-opened .megamenu-content {}
+
+#megamenu-content {
+    background-color: rgba(255, 255, 255, 0.1)!important;
+}
+
+#megamenu-menu-panel {
+    font-family: var(--title-font)!important;
+    padding: 10px!important;
+}
+
+.megamenu-menu-panel {
+    padding: 10px!important;
+}
+
+.megamenu-menu-header-title-menu {
+    color: var(--sidebar-font-color)!important;
+}
+
+.megamenu-menu-header-title-back {
+    color: var(--sidebar-font-color)!important;
+}
+
+
+/* sidebar */
+
+.megamenu-menu-header {
+    width: 60%!important;
+    text-align: center!important;
+    border-bottom: solid 3px var(--main-color)!important;
+}
+
+#megamenu-menu-sidebar {
+    background-color: rgba(255, 255, 255, 0.1)!important;
+    color: var(--sidebar-font-color)!important;
+}
+
+#megamenu-back-btn {
+    border-radius: 1.2em!important;
+    color: var(--main-color)!important;
+    transition: all linear .3s!important;
+    padding: 0 0 10px!important;
+}
+
+#megamenu-back-btn:hover {
+    background-color: var(--main-color)!important;
+    color: white!important;
+    border: 2px solid white!important;
+    transition: all linear .3s!important;
+}
+
+#megamenu-menu-list>li {
+    transition: all linear .3s!important;
+}
+
+#megamenu-menu-list>li:hover {
+    transition: all linear .3s!important;
+    border-top-left-radius: 1.2em!important;
+    border-bottom-left-radius: 1.2em!important;
+}
+
+#megamenu-menu-list>li:focus {
+    transition: all linear .3s!important;
+    color: white!important;
+    background-color: var(--shadow-color)!important;
+    width: fit-content!important;
+    border-top-right-radius: 1.2em!important;
+    border-bottom-right-radius: 1.2em!important;
+}
+
+.dropdown-menu .divider {
+    width: 30%!important;
+    color: var(--main-color)!important;
+    background-color: var(--main-color)!important;
+}
+
+.megamenu-menu-list li a {
+    transition: all linear .3s!important;
+    width: fit-content!important;
+    padding-right: 60px!important;
+}
+
+.megamenu-menu-list li a:hover {
+    transition: all linear .3s!important;
+    color: white !important;
+    background-color: var(--main-color) !important;
+    border-bottom-right-radius: 2em!important;
+    border-top-right-radius: 2em!important;
+}
+
+.megamenu-menu-list li a.active,
+.megamenu-menu-list:not(.saved) li a:hover {
+    color: white !important;
+    background-color: var(--main-color) !important;
+    border-bottom-right-radius: 2em!important;
+    border-top-right-radius: 2em!important;
+}
+
+
+/* open */
+
+#m-open-local,
+#m-import-local {
+    border-radius: 1.2em!important;
+}
+
+#m-open-local:hover,
+#m-import-local:hover {
+    border: 1px solid var(--shadow-color)!important;
+}
+
+#recent-file-panel-search-input {
+    border-radius: 1.2em!important;
+    transition: all linear .3s!important;
+    font-family: var(--title-font)!important;
+}
+
+#recent-file-panel-action-btn {
+    border-radius: 1.2em!important;
+}
+
+#recent-file-panel-search-input:hover {
+    transition: all linear .3s!important;
+    box-shadow: 0 0 10px 3px var(--shadow-color)!important;
+}
+
+#recent-file-panel-search-input:focus {
+    transition: all linear .3s!important;
+    color: white!important;
+    border: none!important;
+    background-color: var(--shadow-color)!important;
+}
+
+
+/* side bar Ctrl Shift 2 */
+
+.info-panel-tab-border {
+    color: var(--main-color) !important;
+    background-color: var(--main-color) !important;
+}
+
+.outline-content {
+    padding: 3px 18px 3px 0!important;
+}
+
+.outline-item {
+    margin-left: -20px!important;
+    margin-right: -20px!important;
+    border-left: 20px solid transparent!important;
+    border-right: 16px solid transparent!important;
+}
+
+.outline-item:hover {
+    background-color: var(--shadow-color)!important;
+    color: white!important;
+}
+
+.active-tab-files #info-panel-tab-file .info-panel-tab-title {
+    background-color: var(--main-color)!important;
+    color: white!important;
+    padding: 5px 5px!important;
+    border-radius: 1.2em!important;
+    transition: all linear .3s!important;
+}
+
+.active-tab-outline #info-panel-tab-outline .info-panel-tab-title {
+    background-color: var(--main-color)!important;
+    color: white!important;
+    padding: 5px 5px!important;
+    border-radius: 1.2em!important;
+    transition: all linear .3s!important;
+}
+
+.ty-show-search #info-panel-tab-search .info-panel-tab-title {
+    background-color: var(--main-color)!important;
+    color: white!important;
+    padding: 5px 5px!important;
+    border-radius: 1.2em!important;
+    transition: all linear .3s!important;
+}
+
+#file-library-search-input {
+    border-radius: .5em!important;
+}
+
+#file-library-search-input:focus {
+    border: 2px solid var(--main-color)!important;
+}
+
+.info-panel-tab-border {
+    display: none!important;
+}
+
+div#file-library-list-children {
+    transition: all linear .3s!important;
+}
+
+.file-list-item.active {
+    border-top-right-radius: 2.2em!important;
+    border-bottom-right-radius: 2.2em!important;
+    width: fit-content!important;
+    background-color: var(--main-color) !important;
+    color: white!important;
+    transition: all linear .3s!important;
+}
+
+.outline-item-active {
+    border-top-right-radius: 2.2em!important;
+    border-bottom-right-radius: 2.2em!important;
+    width: fit-content!important;
+    background-color: var(--main-color) !important;
+    color: white!important;
+    transition: all linear .3s!important;
+}
+
+
+/* theme */
+
+.theme-preview-div.active,
+.theme-preview-div.active:hover {
+    border-color: var(--main-color)!important;
+}
+
+#theme-preview-grid {
+    max-width: 100% !important;
+}
+
+#open-theme-folder-btn {
+    transition: all .3s!important;
+    border-radius: 2em!important;
+    border: none!important;
+    color: white !important;
+    background-color: var(--main-color)!important;
+}
+
+#open-theme-folder-btn:hover {
+    transition: all .3s!important;
+    color: white !important;
+    background-color: var(--shadow-color)!important;
+}
+
+
+/* export */
+
+.long-btn {
+    transition: all .3s!important;
+    border-radius: 2em!important;
+    border: 2px solid var(--main-color)!important;
+    color: var(--main-color)!important;
+}
+
+.long-btn:hover {
+    transition: all .3s!important;
+    color: white !important;
+    background-color: var(--main-color)!important;
+}
+
+.long-btn-wrap {
+    padding: 10px!important;
+}
+
+.megamenu-section-export {
+    font-family: var(--title-font) !important;
+}
+
+.megamenu-menu-panel h1 {
+    padding-bottom: 10px!important;
+    width: fit-content !important;
+    border-bottom: var(--main-color) solid 3px!important;
+}
+
+.megamenu-menu-panel h2::before {
+    content: "H2"!important;
+    border-radius: .3em!important;
+    font-size: 25px!important;
+    padding: 3px 7px!important;
+    margin: 5px 15px 5px 1px!important;
+    background-color: var(--main-color)!important;
+    color: white!important;
+}
+
+
+/* modal exit dialog */
+
+.btn-primary {
+    transition: all .3 linear!important;
+    border-radius: 1.2em!important;
+    background-color: var(--main-color)!important;
+}
+
+.btn-default {
+    transition: all .3 linear!important;
+    border-radius: 1.2em!important;
+    border: var(--main-color) 3px solid!important;
+    color: var(--main-color)!important;
+    background-color: white!important;
+}
+
+.btn-primary:hover,
+.btn-default:hover {
+    transition: all .3 linear!important;
+    color: white!important;
+    background-color: var(--shadow-color)!important;
+}
+
+.btn-primary:focus,
+.btn-default:focus {
+    transition: all .3 linear!important;
+    color: white!important;
+    background-color: var(--main-color)!important;
+}
+
+.modal-content {
+    border-radius: 1.5em!important;
+    border: none!important;
+}

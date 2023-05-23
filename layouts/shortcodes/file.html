@@ -1,0 +1,6 @@
+
+{{ $stat_ref_dir := default "true" (.Get "stat_ref_dir") }}
+{{ $filename := .Get "file" }}
+{{ $name := default $filename (.Get "name") }}
+{{ $filename = (path.Join $.Page.RelPermalink $filename) }}
+{{(print "[" $name "](" $filename ")") | safeHTML }}

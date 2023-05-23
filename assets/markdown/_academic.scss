@@ -1,0 +1,92 @@
+:root {
+	--borders: #e6ecf1;
+	--table-border-color: #e6ecf1;
+}
+
+body {
+	font-family: "Times New Roman", Times, serif;
+}
+
+.markdown {
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		font-family: Arial, Helvetica, sans-serif;
+	}
+	table {
+		border-collapse: collapse;
+		font-size: 0.875rem !important;
+		padding: 0 !important;
+		margin: 1.5rem 0 !important;
+		word-break: initial !important;
+	}
+
+	table tr {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	table thead tr {
+		border-top: 2px solid var(--borders) !important;
+		border-bottom: 2px solid var(--borders) !important;
+	}
+
+	table tr.md-end-block {
+		border-top: none !important;
+	}
+
+	table tbody tr:last-child {
+        border-bottom: 2px solid var(--borders) !important;
+	}
+
+	table tr th {
+		font-weight: bold !important;
+		border: none !important;
+		margin: 0 !important;
+		padding: 10px 16px !important;
+		transition-duration: 0.3s !important;
+		transition-property: background-color !important;
+	}
+
+	table tr td {
+		border: none !important;
+		margin: 0 !important;
+		padding: 10px 16px !important;
+		transition-duration: 0.3s !important;
+		transition-property: background-color !important;
+	}
+
+	table tr td:hover,
+	table tr th:hover {
+		background-color: var(--boxes) !important;
+	}
+
+	table tr th:first-child,
+	table tr td:first-child {
+		margin-top: 0 !important;
+	}
+
+	table tr th:last-child,
+	table tr td:last-child {
+		margin-bottom: 0 !important;
+	}
+
+	code {
+		background-color: lightgray !important;
+	}
+
+	pre code {
+		background-color: midnightblue !important;
+		padding: 10px;
+		font-family: "Courier New", Courier, monospace;
+	}
+
+	pre {
+		background-color: #f8f8f8 !important;
+		padding: 10px;
+		font-family: "Courier New", Courier, monospace;
+	}
+}

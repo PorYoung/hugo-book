@@ -1,6 +1,6 @@
 @import "defaults";
 @import "variables";
-@import "themes/{{ default "light" .Site.Params.BookTheme }}";
+@import "themes/{{ default " light " .Site.Params.BookTheme }}";
 
 @import "normalize";
 @import "utils";
@@ -8,7 +8,8 @@
 @import "fonts";
 @import "print";
 
-@import "markdown";
+@import "markdown/public";
+@import "markdown/{{ default " markdown " .Site.Params.MarkdownTheme }}";
 @import "shortcodes";
 
 // Custom defined styles
