@@ -1,0 +1,42 @@
+{{- if default false .Site.Params.BookSiteAuth -}}
+<script>
+    const auth_url = {{ .Site.Params.BookSiteAuthUrl }};
+    const expire = {{ .Site.Params.BookSiteAuthExpire }};
+    const html = `<main class="flex justify-center not-found">
+        <div style="text-align: center;">
+            <h1>Auth</h1>
+            <h2>Please input the <i style="color: red;">accessing code</i> and press <i style="color: red;">Enter</i> key.</h2>
+            <h2>
+                <input type="password" id="password"></input>
+            </h2>
+        </div>
+    </main>`;
+    const secret = Cookies.get('secret');
+
+    if (!secret) {
+        document.body.innerHTML = html;
+
+        const input = document.querySelector("#password");
+        input.addEventListener("keydown", login);
+
+        function login(event) {
+            if (event.keyCode !== 13) return;
+
+            fetch(auth_url, {
+                method: "POST",
+                body: JSON.stringify({ key: input.value, sault: "" }),
+                headers: { "Content-Type": "application/json" },
+            })
+                .then((resp) => resp.json())
+                .then((res) => {
+                    if (res && res.code == 0) {
+                        Cookies.set("secret", (new Date()).getTime(), { expires: expire });
+
+                        return window.location.reload();
+                    }
+                    alert("failed");
+                });
+        }
+    }
+</script>
+{{ end -}}
